@@ -6,6 +6,32 @@
     <title>Unity Web Player | Tic Tac Toe</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      html, body {
+        position: static;
+        height: auto;
+        overflow: auto;
+        text-align: center;
+      }
+
+      #unity-container.unity-desktop {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 20px auto 0;
+        width: 960px;
+      }
+
+      .game-description {
+        max-width: 960px;
+        margin: 20px auto 40px;
+        padding: 0 16px;
+        text-align: left;
+        font-family: sans-serif;
+        line-height: 1.5;
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -23,6 +49,15 @@
         <div id="unity-build-title">Tic Tac Toe</div>
       </div>
     </div>
+
+    <div class="game-description">
+      <h2>Recursive Ultimate Tic Tac Toe</h2>
+      <p>A version of Tic Tac Toe based on Ultimate Tic Tac Toe, where each cell contains its own smaller board. The nesting depth is adjustable, so the board can be recursive. This is the single-player mode against an AI. The depth is changed manually through the inspector currently so it can't be done here.</p>
+      <p><strong>How to play:</strong> Click a cell to claim it. Cells you can play in are highlighted in red; as in Ultimate Tic Tac Toe, the cell your opponent last played decides where you can move next. Scroll to zoom in and out.</p>
+      <p><strong>About the AI:</strong> The opponent was trained with deep reinforcement learning (PyTorch) and uses Monte Carlo Tree Search. I trained it in a Python recreation of the game, then ported it to Unity using Sentis. It wins nearly every game.</p>
+      <p>Board depth, the number of AI simulations, and single- vs. multiplayer are set in Unity's Inspector, so they can't be changed in this web version. All art is developer art. Built solo in Unity (C#) by Brandon Deml.</p>
+    </div>
+
     <script>
       var canvas = document.querySelector("#unity-canvas");
 
@@ -129,13 +164,5 @@
       document.body.appendChild(script);
 
     </script>
-    <p>Recursive Ultimate Tic Tac Toe
-A version of Tic Tac Toe based on Ultimate Tic Tac Toe, where each cell contains its own smaller board. The nesting depth is adjustable, so the board can be recursive. This is the single-player mode against an AI. The depth is changed manually through the inspector currently so it can't be done here
-
-How to play: Click a cell to claim it. Cells you can play in are highlighted in red; as in Ultimate Tic Tac Toe, the cell your opponent last played decides where you can move next. Scroll to zoom in and out.
-
-About the AI: The opponent was trained with deep reinforcement learning (PyTorch) and uses Monte Carlo Tree Search. I trained it in a Python recreation of the game, then ported it to Unity using Sentis. It wins nearly every game.
-
-Board depth, the number of AI simulations, and single- vs. multiplayer are set in Unity’s Inspector, so they can’t be changed in this web version. All art is developer art. Built solo in Unity (C#) by Brandon Deml.</p>
   </body>
 </html>
